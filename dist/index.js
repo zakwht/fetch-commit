@@ -9804,6 +9804,7 @@ try {
   core.debug('debug', url, path)
   core.info(url)
   core.info(path)
+  console.log(core.toPlatformPath("test.json"))
   // core.info(fetch)
   // core.info(writeFileSync)
 
