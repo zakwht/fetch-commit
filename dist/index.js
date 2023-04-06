@@ -8102,7 +8102,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(1041);
 const fetch = __nccwpck_require__(6102);
-const { writeFile } = __nccwpck_require__(7147);
+const { writeFile } = (__nccwpck_require__(7147).promises);
 const { exec } = __nccwpck_require__(2350);
 const bot = __nccwpck_require__(1717);
 

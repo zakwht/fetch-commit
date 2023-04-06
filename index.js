@@ -1,6 +1,6 @@
 const core = require("@actions/core");
 const fetch = require("node-fetch");
-const { writeFile } = require("fs");
+const { writeFile } = require("fs").promises;
 const { exec } = require("@actions/exec");
 const bot = require("./profile.json");
 
