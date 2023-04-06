@@ -11,11 +11,14 @@ inputs:
     description: "Commit message"
     required: false
     default: "Update data"
-#  - params: fetch url, path (file to print), GH token, headers (auth, etc)
+  headers:
+    description: "Headers for the fetch request"
+    required: false
 
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  diff: 
+    description: 'Boolean: data updated'
+
 runs:
   using: 'node16'
   main: 'dist/index.js'
