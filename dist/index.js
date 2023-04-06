@@ -9792,7 +9792,8 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(1041);
 const github = __nccwpck_require__(8722);
 const fetch = __nccwpck_require__(6102)
-const { writeFile } = __nccwpck_require__(7147);
+const { promisify } = __nccwpck_require__(3837);
+const writeFile = promisify((__nccwpck_require__(7147).writeFile))
 
 const main = async () => {
   const url = core.getInput("url");

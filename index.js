@@ -1,7 +1,8 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fetch = require("node-fetch")
-const { writeFile } = require("fs");
+const { promisify } = require("util");
+const writeFile = promisify(require("fs").writeFile)
 
 const main = async () => {
   const url = core.getInput("url");
