@@ -3,28 +3,24 @@ const github = require('@actions/github');
 const fetch = require("node-fetch")
 const { writeFileSync } = require("fs");
 
-try {
-
-  // https://www.randomnumberapi.com/api/v1.0/random
+const main = async () => {
   const url = core.getInput("url");
   const path = core.getInput("path");
-
 
   core.debug('debug', url, path)
   core.info(url)
   core.info(path)
-  console.log(core.toPlatformPath("test.json"))
-  // core.info(fetch)
-  // core.info(writeFileSync)
 
-  
+  const body = await fetch(url).then(res => res.text())
+  writeFileSync(path, JSON.stringify(body, null, 2))
+  core.info(body)
+}
 
-  fetch(url).then(res => res.text()).then(body => 
-    {
-      writeFileSync(path, JSON.stringify(body, null, 2))
-      console.log(body)
-      core.info(body)
-    })
+try {
+
+  main()
+  // https://www.randomnumberapi.com/api/v1.0/random
+
 
   // console.log(url, path)
   // `who-to-greet` input defined in action metadata file
