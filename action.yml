@@ -23,3 +23,7 @@ outputs:
 runs:
   using: "node16"
   main: "dist/index.js"
+
+branding:
+  icon: "arrow-down-circle"
+  color: "gray-dark"
