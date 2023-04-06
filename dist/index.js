@@ -16917,9 +16917,9 @@ try {
   const path = core.getInput("path");
 
 
-  core.debug(url, path)
-
-  core.debug(fetch, writeFileSync)
+  core.debug('debug', url, path)
+  core.info(url, path)
+  core.info(fetch, writeFileSync)
 
   
 
