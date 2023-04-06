@@ -11049,7 +11049,7 @@ const github = __nccwpck_require__(8722);
 const fetch = __nccwpck_require__(6102)
 const { promisify } = __nccwpck_require__(3837);
 const { writeFileSync, promises: { writeFile } } = __nccwpck_require__(7147) 
-const exec = __nccwpck_require__(2350);
+const { exec } = __nccwpck_require__(2350);
 
 
 const main = async () => {

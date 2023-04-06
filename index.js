@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const fetch = require("node-fetch")
 const { promisify } = require("util");
 const { writeFileSync, promises: { writeFile } } = require("fs") 
-const exec = require('@actions/exec');
+const { exec } = require('@actions/exec');
 
 
 const main = async () => {
