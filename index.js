@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const fetch = require("node-fetch")
 const { promises: { writeFile } } = require("fs") 
 const { exec } = require('@actions/exec');
-const bot = require("profile.json")
+const bot = require("./profile.json")
 
 const main = async () => {
   const url = core.getInput("url");
@@ -15,8 +15,8 @@ const main = async () => {
   core.info(body)
 
   exec(`echo "text" > text.json`)
-  exec(`git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"`)
-  exec(`git config --local user.name "github-actions"`)
+  exec(`git config --local user.email "${bot.email}"`)
+  exec(`git config --local user.name "${bot.name}"`)
   exec(`git add ${path}`)
   const code = await exec(`git diff-index --quiet HEAD`)
   core.info(code)
