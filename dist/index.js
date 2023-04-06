@@ -9809,7 +9809,12 @@ try {
 
   
 
-  fetch(url).then(res => res.text()).then(body => writeFileSync(path, JSON.stringify(body, null, 2)))
+  fetch(url).then(res => res.text()).then(body => 
+    {
+      writeFileSync(path, JSON.stringify(body, null, 2))
+      console.log(body)
+      core.info(body)
+    })
 
   // console.log(url, path)
   // `who-to-greet` input defined in action metadata file
