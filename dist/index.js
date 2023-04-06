@@ -11065,10 +11065,9 @@ const main = async () => {
   const message = core.getInput("message");
 
   const body = await fetch(url).then(res => res.text())
-  await writeFile(path, JSON.stringify(body, null, 2))
+  // await writeFile(path, JSON.stringify(body, null, 2))
   core.info(body)
 
-  exec(`echo "text" > text.json`)
   exec(`git config --local user.email "${bot.email}"`)
   exec(`git config --local user.name "${bot.name}"`)
   exec(`git add ${path}`)
