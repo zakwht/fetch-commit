@@ -1,11 +1,11 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: "Hello World"
+description: "Greet someone and record the time"
 inputs:
   url:
-    description: 'URL of file to fetch'
+    description: "URL of file to fetch"
     required: true
   path:
-    description: 'Directory path to print file contents'
+    description: "Directory path to print file contents"
     required: true
   message:
     description: "Commit message"
@@ -14,12 +14,12 @@ inputs:
   headers:
     description: "Headers for the fetch request"
     required: false
-    default: '{}'
+    default: "{}"
 
 outputs:
-  diff: 
-    description: 'Boolean: data updated'
+  diff:
+    description: "Boolean: data updated"
 
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
