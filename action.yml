@@ -1,0 +1,17 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  url:
+    description: 'URL of file to fetch'
+    required: true
+  path:
+    description: 'Directory path to print file contents'
+    required: true
+#  - params: fetch url, path (file to print), GH token, headers (auth, etc)
+
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
