@@ -23,7 +23,8 @@ const main = async () => {
   exec(`git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"`)
   exec(`git config --local user.name "github-actions"`)
   exec(`git add *`)
-  exec(`git diff-index --quiet HEAD || git commit -m ${message}`)
+  // git diff-index --quiet HEAD ||
+  exec(`git commit -m ${message}`)
   exec(`git push`)
   exec('echo ABC!');
 
