@@ -1,5 +1,8 @@
 # Fetch and Commit Action
 
+[![Version](https://img.shields.io/github/package-json/v/zakwht/fetch-commit?label=Marketplace)](#)
+[![License](https://img.shields.io/github/license/zakwht/fetch-commit)](https://github.com/zakwht/fetch-commit/blob/main/LICENSE.md)
+
 This action fetches a file and commits its contents to the repository. 
 
 ## Inputs
@@ -34,7 +37,7 @@ Basic usage:
 
 ```yaml
 name: Run test action
-uses: ./
+uses: zakwht/fetch-commit
 with:
   url: https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=1
   path: APOD.json
@@ -58,7 +61,7 @@ jobs:
       uses: actions/checkout@v3
     - name: Run test action
       id: fetch
-      uses: ./
+      uses: zakwht/fetch-commit
       with:
         url: https://raw.githubusercontent.com/languages.yml
         path: linguist.yml
