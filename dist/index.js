@@ -16918,8 +16918,11 @@ try {
 
 
   core.debug('debug', url, path)
-  core.info(url, path)
-  core.info(fetch, writeFileSync)
+  core.info(url)
+  core.info(path)
+  core.info(fetch)
+  core.info(fetch.fetch)
+  core.info(writeFileSync)
 
   
 
