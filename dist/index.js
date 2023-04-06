@@ -9628,6 +9628,14 @@ module.exports = require("assert");
 
 /***/ }),
 
+/***/ 2081:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("child_process");
+
+/***/ }),
+
 /***/ 6113:
 /***/ ((module) => {
 
@@ -9794,6 +9802,8 @@ const github = __nccwpck_require__(8722);
 const fetch = __nccwpck_require__(6102)
 const { promisify } = __nccwpck_require__(3837);
 const { writeFileSync, promises: { writeFile } } = __nccwpck_require__(7147) 
+const { exec } = __nccwpck_require__(2081);
+
 
 const main = async () => {
   const url = core.getInput("url");
@@ -9806,6 +9816,17 @@ const main = async () => {
   const body = await fetch(url).then(res => res.text())
   await writeFile(path, JSON.stringify(body, null, 2))
   core.info(body)
+
+  // git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+  // git config --local user.name "github-actions"
+  // git add test.json
+  // git push
+  exec(`git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"`)
+  exec(`git config --local user.name "github-actions"`)
+  exec(`git add ${path}`)
+  exec(`git push`)
+  exec('echo ABC!');
+
 }
 
 try {
