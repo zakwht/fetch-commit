@@ -1,19 +1,14 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fetch = require("node-fetch")
-const { promisify } = require("util");
-const { writeFileSync, promises: { writeFile } } = require("fs") 
+const { promises: { writeFile } } = require("fs") 
 const { exec } = require('@actions/exec');
-
+const bot = require("profile.json")
 
 const main = async () => {
   const url = core.getInput("url");
   const path = core.getInput("path");
-  const message = "update data"
-
-  core.debug('debug', url, path)
-  core.info(url)
-  core.info(path)
+  const message = core.getInput("message");
 
   const body = await fetch(url).then(res => res.text())
   await writeFile(path, JSON.stringify(body, null, 2))
@@ -22,8 +17,9 @@ const main = async () => {
   exec(`echo "text" > text.json`)
   exec(`git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"`)
   exec(`git config --local user.name "github-actions"`)
-  exec(`git add *`)
-  // git diff-index --quiet HEAD ||
+  exec(`git add ${path}`)
+  const code = await exec(`git diff-index --quiet HEAD`)
+  core.info(code)
   exec(`git commit -m "${message}"`)
   exec(`git push`)
   exec('echo ABC!');
@@ -33,20 +29,7 @@ const main = async () => {
 }
 
 try {
-
-  main().catch(e => core.setFailed(e.message))
-  // https://www.randomnumberapi.com/api/v1.0/random
-
-
-  // console.log(url, path)
-  // `who-to-greet` input defined in action metadata file
-  // const nameToGreet = core.getInput('who-to-greet');
-  // console.log(`Hello ${nameToGreet}!`);
-  // const time = (new Date()).toTimeString();
-  // core.setOutput("time", time);
-  // // Get the JSON webhook payload for the event that triggered the workflow
-  // const payload = JSON.stringify(github.context.payload, undefined, 2)
-  // console.log(`The event payload: ${payload}`);
+  main()
 } catch (error) {
   core.setFailed(error.message);
 }

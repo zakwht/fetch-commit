@@ -7,6 +7,10 @@ inputs:
   path:
     description: 'Directory path to print file contents'
     required: true
+  message:
+    description: "Commit message"
+    required: false
+    default: "Update data"
 #  - params: fetch url, path (file to print), GH token, headers (auth, etc)
 
 outputs:
