@@ -1,4 +1,4 @@
-name: "Hello World"
+name: "Fetch and Commit"
 description: "Greet someone and record the time"
 inputs:
   url:
