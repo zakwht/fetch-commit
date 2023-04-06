@@ -24,7 +24,7 @@ const main = async () => {
   exec(`git config --local user.name "github-actions"`)
   exec(`git add *`)
   // git diff-index --quiet HEAD ||
-  exec(`git commit -m ${message}`)
+  exec(`git commit -m "${message}"`)
   exec(`git push`)
   exec('echo ABC!');
 
