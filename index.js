@@ -8,7 +8,7 @@ const main = async () => {
   const url = core.getInput("url");
   const path = core.getInput("path");
   const message = core.getInput("message");
-  const headers = core.getInput("headers") || {};
+  const headers = JSON.parse(core.getInput("headers"));
 
   const body = await fetch(url, { headers }).then((res) => res.text());
   await writeFile(path, JSON.stringify(body, null, 2));
