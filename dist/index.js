@@ -11072,7 +11072,9 @@ const main = async () => {
   exec(`git config --local user.email "${bot.email}"`)
   exec(`git config --local user.name "${bot.name}"`)
   exec(`git add ${path}`)
-  const code = await exec(`git diff-index --quiet HEAD`)
+  const code = await exec(`git diff --cached --quiet ${path}`, undefined, {
+    failOnStdErr: false
+  })
   core.info(code)
   exec(`git commit -m "${message}"`)
   exec(`git push`)
