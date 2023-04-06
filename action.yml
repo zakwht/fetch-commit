@@ -14,6 +14,7 @@ inputs:
   headers:
     description: "Headers for the fetch request"
     required: false
+    default: '{}'
 
 outputs:
   diff: 
