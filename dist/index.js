@@ -16916,10 +16916,16 @@ try {
   const url = core.getInput("url");
   const path = core.getInput("path");
 
+
+  core.debug(url, path)
+
+  core.debug(fetch, writeFileSync)
+
+  
+
   fetch(url).then(res => res.text()).then(body => writeFileSync(path, JSON.stringify(body, null, 2)))
 
   // console.log(url, path)
-  core.debug(url, path)
   // `who-to-greet` input defined in action metadata file
   // const nameToGreet = core.getInput('who-to-greet');
   // console.log(`Hello ${nameToGreet}!`);
