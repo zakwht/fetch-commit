@@ -11055,7 +11055,7 @@ const { exec } = __nccwpck_require__(2350);
 const main = async () => {
   const url = core.getInput("url");
   const path = core.getInput("path");
-  const method = "update data"
+  const message = "update data"
 
   core.debug('debug', url, path)
   core.info(url)
@@ -11069,7 +11069,7 @@ const main = async () => {
   exec(`git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"`)
   exec(`git config --local user.name "github-actions"`)
   exec(`git add *`)
-  exec(`git commit -m ${message}`)
+  exec(`git diff-index --quiet HEAD || git commit -m ${message}`)
   exec(`git push`)
   exec('echo ABC!');
 
