@@ -11,4 +11,4 @@ jobs:
       with:
         url: https://www.randomnumberapi.com/api/v1.0/random
         path: test.json
-        headers: "{ 'Authorizaton': 'BEARER ABC!' }"
+        headers: '{ "Authorizaton": "BEARER ABC!" }'
