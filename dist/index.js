@@ -9817,21 +9817,20 @@ const main = async () => {
   await writeFile(path, JSON.stringify(body, null, 2))
   core.info(body)
 
-  // git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-  // git config --local user.name "github-actions"
-  // git add test.json
-  // git push
+  exec(`echo "text" > text.json`)
   exec(`git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"`)
   exec(`git config --local user.name "github-actions"`)
-  exec(`git add ${path}`)
+  exec(`git add *`)
   exec(`git push`)
   exec('echo ABC!');
+
+  core.info('gittyyy up cowboy!')
 
 }
 
 try {
 
-  main()
+  main().catch(e => core.setFailed(e.message))
   // https://www.randomnumberapi.com/api/v1.0/random
 
 
