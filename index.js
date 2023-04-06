@@ -13,9 +13,8 @@ try {
   core.debug('debug', url, path)
   core.info(url)
   core.info(path)
-  core.info(fetch)
-  core.info(fetch.fetch)
-  core.info(writeFileSync)
+  // core.info(fetch)
+  // core.info(writeFileSync)
 
   
 
